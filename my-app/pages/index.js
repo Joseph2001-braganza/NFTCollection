@@ -231,9 +231,9 @@ export default function Home() {
 
     // If user is not connected to the Sepolia network, let them know and throw an error
     const { chainId } = await web3Provider.getNetwork();
-    if (chainId !== 11155111) {
-      window.alert("Change the network to Sepolia Dude");
-      throw new Error("Change network to Sepolia Dude");
+    if (chainId !== 1337) {
+      window.alert("Change the network to Goerli Dude");
+      throw new Error("Change network to Goerli Dude");
     }
 
     if (needSigner) {
@@ -252,7 +252,7 @@ export default function Home() {
       // Assign the Web3Modal class to the reference object by setting it's `current` value
       // The `current` value is persisted throughout as long as this page is open
       web3ModalRef.current = new Web3Modal({
-        network: "sepolia",
+        network: "goerli",
         providerOptions: {},
         disableInjectedProvider: false,
       });
@@ -303,7 +303,7 @@ export default function Home() {
     }
 
     // If connected user is the owner, and presale hasnt started yet, allow them to start the presale
-    if (!presaleStarted) {
+    if (getOwner&&!presaleStarted) {
       return (
         <button className={styles.button} onClick={startPresale}>
           Start Presale!
