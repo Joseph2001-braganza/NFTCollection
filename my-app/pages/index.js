@@ -303,7 +303,7 @@ export default function Home() {
     }
 
     // If connected user is the owner, and presale hasnt started yet, allow them to start the presale
-    if (isOwner && !presaleStarted) {
+    if (!presaleStarted) {
       return (
         <button className={styles.button} onClick={startPresale}>
           Start Presale!
