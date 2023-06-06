@@ -231,7 +231,7 @@ export default function Home() {
 
     // If user is not connected to the Sepolia network, let them know and throw an error
     const { chainId } = await web3Provider.getNetwork();
-    if (chainId !== 1337) {
+    if (chainId !== 5) {
       window.alert("Change the network to Goerli Dude");
       throw new Error("Change network to Goerli Dude");
     }
